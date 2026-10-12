@@ -1,13 +1,9 @@
-user = "Nikita"
+from fastapi import FastAPI
 
 
-def user_check_name(user: str) -> bool:
-    if user == "Nikita":
-        print("True")
-        return True
-    else:
-        print("False")
-        return False
-    
+app = FastAPI()
 
-user_check_name(user=user)
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
